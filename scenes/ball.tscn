@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://jyxbsl18rfof"]
+
+[ext_resource type="Texture2D" uid="uid://olgby2avvwgs" path="res://images/ball.png" id="1_vcwpg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b656b"]
+radius = 51.0
+
+[node name="ball" type="RigidBody2D"]
+contact_monitor = true
+
+[node name="ball_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_vcwpg")
+
+[node name="ball_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b656b")
+
+[node name="ball_camera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
