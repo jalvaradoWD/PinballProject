@@ -1,29 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbv4cw64h4vu8"]
+[gd_scene load_steps=3 format=3 uid="uid://dbv4cw64h4vu8"]
 
 [ext_resource type="PackedScene" uid="uid://jyxbsl18rfof" path="res://scenes/ball.tscn" id="1_i2pnh"]
-[ext_resource type="PackedScene" uid="uid://cfax3vx6y3fuk" path="res://scenes/platform.tscn" id="2_lj512"]
-[ext_resource type="PackedScene" uid="uid://cymmwiejp7253" path="res://scenes/flipper_left.tscn" id="3_0sc8s"]
-[ext_resource type="PackedScene" uid="uid://dlfl4er5l2ld5" path="res://scenes/flipper_right.tscn" id="4_wbluo"]
+[ext_resource type="PackedScene" uid="uid://f0q8md067d8d" path="res://scenes/cabinet.tscn" id="6_wjvgt"]
 
 [node name="world" type="Node2D"]
 
-[node name="platform" parent="." instance=ExtResource("2_lj512")]
-position = Vector2(606, 601)
-
-[node name="platform2" parent="." instance=ExtResource("2_lj512")]
-position = Vector2(256, 384)
-rotation = 0.785398
-
-[node name="platform3" parent="." instance=ExtResource("2_lj512")]
-position = Vector2(848, 384)
-rotation = -0.785387
+[node name="cabinet" parent="." instance=ExtResource("6_wjvgt")]
+position = Vector2(391, -302)
 
 [node name="ball" parent="." instance=ExtResource("1_i2pnh")]
-position = Vector2(520, 88)
+position = Vector2(71, -695)
 collision_mask = 3
-
-[node name="flipper_left" parent="." instance=ExtResource("3_0sc8s")]
-position = Vector2(336, 456)
-
-[node name="flipper_right" parent="." instance=ExtResource("4_wbluo")]
-position = Vector2(744, 456)

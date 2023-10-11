@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://olgby2avvwgs"
-path="res://.godot/imported/Ball.png-76d7cca3c6fa1ab9b6c0618b5c96e734.ctex"
+uid="uid://dl6mvt4cux812"
+path="res://.godot/imported/Bumper.png-372ff8b109a98b515f5bc198717a4bf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Ball.png"
-dest_files=["res://.godot/imported/Ball.png-76d7cca3c6fa1ab9b6c0618b5c96e734.ctex"]
+source_file="res://images/Bumper.png"
+dest_files=["res://.godot/imported/Bumper.png-372ff8b109a98b515f5bc198717a4bf7.ctex"]
 
 [params]
 
