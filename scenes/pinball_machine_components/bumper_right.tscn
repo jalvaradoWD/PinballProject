@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://driyv8kl3kp2f"]
+
+[ext_resource type="Texture2D" uid="uid://cf7w70ik6am61" path="res://images/triangular_bumper_img.png" id="1_30hrt"]
+
+[node name="bumper_right" type="StaticBody2D"]
+
+[node name="bumper_sprite" type="Sprite2D" parent="."]
+position = Vector2(-19.5248, -31.3136)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_30hrt")
+flip_h = true
+
+[node name="bumper_collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-15.5248, -98.3136)
+rotation = -0.0940942
+build_mode = 1
+polygon = PackedVector2Array(3.70044, 3.36256, -65.5254, 151.514, -61.581, 162.935, -49.0144, 168.139, 33.0186, 139.72, 38.5602, 134.217, 41.209, 127.436, 32.5722, 6.08727, 30.0552, 0.827522, 20.5692, -5.08992, 10.3316, -3.04274)

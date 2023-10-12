@@ -1,68 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://f0q8md067d8d"]
+[gd_scene load_steps=8 format=3 uid="uid://f0q8md067d8d"]
 
 [ext_resource type="Texture2D" uid="uid://dd0mmrpq40u7a" path="res://images/background.png" id="1_13xl3"]
-[ext_resource type="Texture2D" uid="uid://cf7w70ik6am61" path="res://images/Bumper_2.png" id="2_tkqy3"]
-[ext_resource type="Texture2D" uid="uid://dgjsynifwcovp" path="res://images/Flipper.png" id="3_406hn"]
-[ext_resource type="Script" path="res://script/paddle_script.gd" id="3_w0416"]
-
-[sub_resource type="Animation" id="Animation_v4evj"]
-resource_name = "flipper_animation_right"
-length = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.523599, 0.523599]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_swkrh"]
-_data = {
-"flipper_animation_right": SubResource("Animation_v4evj")
-}
-
-[sub_resource type="Animation" id="Animation_88tlg"]
-resource_name = "paddle_animation_left"
-length = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.523599, -0.523599]
-}
-
-[sub_resource type="Animation" id="Animation_t67f4"]
-resource_name = "flipper_animation_right"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.523599, 0.523599]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mpaxj"]
-_data = {
-"flipper_animation_left": SubResource("Animation_88tlg"),
-"flipper_animation_right": SubResource("Animation_t67f4")
-}
+[ext_resource type="PackedScene" uid="uid://dlfl4er5l2ld5" path="res://scenes/pinball_machine_components/flipper_right.tscn" id="2_lsj1h"]
+[ext_resource type="PackedScene" uid="uid://cw1hc7u1cbavs" path="res://scenes/pinball_machine_components/flipper_left.tscn" id="3_30aru"]
+[ext_resource type="PackedScene" uid="uid://2f8nrvxj8lo7" path="res://scenes/pinball_machine_components/bumper_left.tscn" id="4_a11xx"]
+[ext_resource type="PackedScene" uid="uid://driyv8kl3kp2f" path="res://scenes/pinball_machine_components/bumper_right.tscn" id="5_rys1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1c8s"]
 size = Vector2(49.6052, 487.427)
@@ -75,71 +17,18 @@ size = Vector2(76, 1124)
 [node name="cabinet_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_13xl3")
 
-[node name="flipper_right" type="AnimatableBody2D" parent="."]
-position = Vector2(167, 997)
-rotation = 0.523599
-script = ExtResource("3_w0416")
-is_flipped = true
+[node name="flipper_right" parent="." instance=ExtResource("2_lsj1h")]
+position = Vector2(190, 1027)
 
-[node name="flipper_sprite" type="Sprite2D" parent="flipper_right"]
-position = Vector2(-63.3999, 3.81079)
-scale = Vector2(-0.183, -0.183)
-texture = ExtResource("3_406hn")
+[node name="flipper_left" parent="." instance=ExtResource("3_30aru")]
+position = Vector2(-254, 1027)
 
-[node name="flipper_collision" type="CollisionPolygon2D" parent="flipper_right"]
-position = Vector2(-63.3994, 3.81088)
-polygon = PackedVector2Array(85.2198, -1.60512, 81.684, 12.5192, 74.5859, 18.8135, 64.8897, 23.6077, -76.8275, 11.0692, -83.2558, 6.20319, -85.9519, -1.12693, -81.9519, -8.05514, -74.9878, -12.1173, 58.275, -22.9352, 69.4352, -22.2654, 78.4615, -15.8993)
+[node name="bumper_left" parent="." instance=ExtResource("4_a11xx")]
+position = Vector2(-262, 758)
+collision_layer = 1
 
-[node name="flipper_animation_player" type="AnimationPlayer" parent="flipper_right"]
-libraries = {
-"": SubResource("AnimationLibrary_swkrh")
-}
-
-[node name="flipper_left" type="AnimatableBody2D" parent="."]
-position = Vector2(-233, 1002)
-rotation = -0.523599
-script = ExtResource("3_w0416")
-
-[node name="flipper_sprite" type="Sprite2D" parent="flipper_left"]
-position = Vector2(59, 0)
-scale = Vector2(0.183, 0.183)
-texture = ExtResource("3_406hn")
-
-[node name="flipper_collision" type="CollisionPolygon2D" parent="flipper_left"]
-position = Vector2(42, -3)
-polygon = PackedVector2Array(-70, 4, -61, 20, -44, 26, 92, 14, 99, 11, 102, 4, 100, -4, 93, -8, -47, -21, -63, -13)
-
-[node name="flipper_animation_player" type="AnimationPlayer" parent="flipper_left"]
-libraries = {
-"": SubResource("AnimationLibrary_mpaxj")
-}
-
-[node name="bumper_left" type="StaticBody2D" parent="."]
-position = Vector2(-248, 729)
-
-[node name="bumper_sprite" type="Sprite2D" parent="bumper_left"]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_tkqy3")
-
-[node name="bumper_collision" type="CollisionPolygon2D" parent="bumper_left"]
-position = Vector2(-23, -65)
-rotation = -0.106388
-build_mode = 1
-polygon = PackedVector2Array(-15.1276, 0.395935, -46.444, 114.717, -46.193, 121.783, -41.8584, 128.281, 32.7661, 173.46, 40.827, 173.315, 46.2235, 169.869, 50.7318, 165.322, 52.6818, 156.479, 14.1332, -0.502075, 6.81555, -7.31763, -2.02734, -9.26764, -9.41254, -6.03357)
-
-[node name="bumper_right" type="StaticBody2D" parent="."]
-position = Vector2(186, 729)
-scale = Vector2(-1, 1)
-
-[node name="bumper_sprite" type="Sprite2D" parent="bumper_right"]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_tkqy3")
-
-[node name="bumper_collision" type="CollisionPolygon2D" parent="bumper_right"]
-position = Vector2(-23, -65)
-rotation = -0.106388
-build_mode = 1
-polygon = PackedVector2Array(-15.1276, 0.395935, -46.444, 114.717, -46.193, 121.783, -41.8584, 128.281, 32.7661, 173.46, 40.827, 173.315, 46.2235, 169.869, 50.7318, 165.322, 52.6818, 156.479, 14.1332, -0.502075, 6.81555, -7.31763, -2.02734, -9.26764, -9.41254, -6.03357)
+[node name="bumper_right" parent="." instance=ExtResource("5_rys1h")]
+position = Vector2(204, 758)
 
 [node name="collission_border" type="StaticBody2D" parent="."]
 position = Vector2(-493, 607)

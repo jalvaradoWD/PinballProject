@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://jyxbsl18rfof"]
 
-[ext_resource type="Texture2D" uid="uid://olgby2avvwgs" path="res://images/Ball.png" id="1_t1x1b"]
+[ext_resource type="Texture2D" uid="uid://olgby2avvwgs" path="res://images/ball.png" id="1_t1x1b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b656b"]
 radius = 146.818
@@ -17,6 +17,6 @@ scale = Vector2(0.15, 0.15)
 shape = SubResource("CircleShape2D_b656b")
 
 [node name="ball_camera" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.85, 0.85)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

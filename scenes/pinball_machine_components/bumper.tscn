@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvq7tr8cwso4s"]
 
-[ext_resource type="Texture2D" uid="uid://cf7w70ik6am61" path="res://images/Bumper_2.png" id="1_plh5f"]
+[ext_resource type="Texture2D" uid="uid://cf7w70ik6am61" path="res://images/triangular_bumper_img.png" id="1_plh5f"]
 
 [node name="bumper" type="StaticBody2D"]
 position = Vector2(-1, 0)

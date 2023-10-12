@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://2f8nrvxj8lo7"]
+
+[ext_resource type="Script" path="res://scenes/pinball_machine_components/bumper.gd" id="1_c70m7"]
+[ext_resource type="Texture2D" uid="uid://cf7w70ik6am61" path="res://images/triangular_bumper_img.png" id="1_uooum"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hwork"]
+radius = 6.0
+height = 181.637
+
+[node name="bumper_left" type="StaticBody2D"]
+collision_layer = 16
+
+[node name="bumper_sprite" type="Sprite2D" parent="."]
+position = Vector2(15.5561, -30.5245)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_uooum")
+
+[node name="bumper_collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-7.44386, -95.5245)
+rotation = -0.106388
+build_mode = 1
+polygon = PackedVector2Array(-15.1276, 0.395935, -46.444, 114.717, -46.193, 121.783, -41.8584, 128.281, 32.7661, 173.46, 40.827, 173.315, 46.2235, 169.869, 50.7318, 165.322, 52.6818, 156.479, 14.1332, -0.502075, 6.81555, -7.31763, -2.02734, -9.26764, -9.41254, -6.03357)
+
+[node name="bumper_collision_group" type="Node2D" parent="."]
+position = Vector2(13, -3)
+script = ExtResource("1_c70m7")
+
+[node name="bot_bumper_push_area" type="Area2D" parent="bumper_collision_group"]
+position = Vector2(25, 4)
+rotation = -0.349066
+collision_layer = 2
+collision_mask = 2
+priority = 1
+
+[node name="bot_bumper_push_collision" type="CollisionShape2D" parent="bumper_collision_group/bot_bumper_push_area"]
+position = Vector2(1.20225, -20.846)
+shape = SubResource("CapsuleShape2D_hwork")
+
+[connection signal="body_entered" from="bumper_collision_group/bot_bumper_push_area" to="bumper_collision_group" method="_on_bot_bumper_push_area_body_entered"]

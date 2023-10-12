@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw1hc7u1cbavs"]
+
+[ext_resource type="Script" path="res://script/paddle_script.gd" id="1_qspqm"]
+[ext_resource type="Texture2D" uid="uid://dgjsynifwcovp" path="res://images/Flipper.png" id="2_bvpqn"]
+
+[sub_resource type="Animation" id="Animation_88tlg"]
+resource_name = "paddle_animation_left"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.523599, -0.523599]
+}
+
+[sub_resource type="Animation" id="Animation_t67f4"]
+resource_name = "flipper_animation_right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.523599, 0.523599]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mpaxj"]
+_data = {
+"flipper_animation_left": SubResource("Animation_88tlg"),
+"flipper_animation_right": SubResource("Animation_t67f4")
+}
+
+[node name="flipper_left" type="AnimatableBody2D"]
+rotation = 0.523599
+script = ExtResource("1_qspqm")
+
+[node name="flipper_sprite" type="Sprite2D" parent="."]
+position = Vector2(60, 2.08165e-12)
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("2_bvpqn")
+
+[node name="flipper_collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(42, -3)
+polygon = PackedVector2Array(-70, 4, -61, 20, -44, 26, 92, 14, 99, 11, 102, 4, 100, -4, 93, -8, -47, -21, -63, -13)
+
+[node name="flipper_animation_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mpaxj")
+}

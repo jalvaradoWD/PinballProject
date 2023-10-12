@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlfl4er5l2ld5"]
+
+[ext_resource type="Script" path="res://script/paddle_script.gd" id="1_frala"]
+[ext_resource type="Texture2D" uid="uid://dgjsynifwcovp" path="res://images/Flipper.png" id="2_ntkyt"]
+
+[sub_resource type="Animation" id="Animation_v4evj"]
+resource_name = "flipper_animation_right"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.523599, 0.523599]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swkrh"]
+_data = {
+"flipper_animation_right": SubResource("Animation_v4evj")
+}
+
+[node name="flipper_right" type="AnimatableBody2D"]
+rotation = -0.523599
+script = ExtResource("1_frala")
+is_flipped = true
+
+[node name="flipper_sprite" type="Sprite2D" parent="."]
+position = Vector2(-60.0333, -0.0192566)
+scale = Vector2(0.183, 0.183)
+texture = ExtResource("2_ntkyt")
+flip_h = true
+
+[node name="flipper_collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-58.6673, -0.385279)
+polygon = PackedVector2Array(83.8538, -1.23907, 83.9519, 4.59106, 80.8179, 12.0193, 74.5859, 18.8135, 64.8897, 23.6077, -76.4615, 12.4352, -84.2558, 7.93522, -86.9519, 0.605094, -85.184, -6.45708, -77.7199, -11.3853, 59.641, -23.3013, 68.9352, -21.3993, 77.9615, -15.0333, 82.5237, -8.93522)
+
+[node name="flipper_animation_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_swkrh")
+}

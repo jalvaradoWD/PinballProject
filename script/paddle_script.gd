@@ -11,7 +11,6 @@ func _ready():
 func _input(_event):
 	if is_flipped:
 		if Input.is_action_just_pressed("flipper_right"):
-			print(scale)
 			PadAnimPlayer.play("flipper_animation_right")
 		elif Input.is_action_just_released("flipper_right"):
 			PadAnimPlayer.play_backwards()
