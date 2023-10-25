@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://2f8nrvxj8lo7"]
 
-[ext_resource type="Script" path="res://scenes/pinball_machine_components/bumper.gd" id="1_c70m7"]
+[ext_resource type="Script" path="res://script/bumper.gd" id="1_c70m7"]
 [ext_resource type="Texture2D" uid="uid://cf7w70ik6am61" path="res://images/triangular_bumper_img.png" id="1_uooum"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hwork"]
